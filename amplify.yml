@@ -4,8 +4,6 @@ frontend:
     preBuild:
       commands:
         - npm ci
-        - npm install typescript @types/node @types/react @types/react-dom --save-dev
-        - npm install postcss postcss-import postcss-nesting --save-dev
     build:
       commands:
         - npm run build
