@@ -23,7 +23,7 @@ const translations = {
     "hero.title": "We Create Digital Experiences That Break Boundaries",
     "hero.subtitle":
       "Transforming ideas into extraordinary digital solutions with cutting-edge technology and innovative design.",
-    "hero.cta.explore": "Explore Our Work",
+    "hero.cta.explore": "Explore Our Services",
     "hero.cta.process": "Get to Know Us",
 
     // About Section
@@ -79,8 +79,11 @@ const translations = {
     "contact.subtitle":
       "Ready to transform your digital presence? We're excited to hear about your project and explore how we can bring your vision to life.",
     "contact.email": "Email",
+    "contact.email.value": "ventas@dospuntocerocr.com",
     "contact.phone": "Phone",
+    "contact.phone.value": "+506 88350280",
     "contact.location": "Location",
+    "contact.location.value": "Costa Rica",
     "contact.start": "Start a Conversation",
     "contact.click": "Click to open the contact form",
     "contact.us": "Contact Us",
@@ -118,7 +121,7 @@ const translations = {
     "hero.title": "Creamos Experiencias Digitales Que Rompen Límites",
     "hero.subtitle":
       "Transformamos ideas en soluciones digitales extraordinarias con tecnología de vanguardia y diseño innovador.",
-    "hero.cta.explore": "Explorar Nuestro Trabajo",
+    "hero.cta.explore": "Explorar nuestros servicios",
     "hero.cta.process": "Conócenos",
 
     // About Section
@@ -176,8 +179,11 @@ const translations = {
     "contact.subtitle":
       "¿Listo para transformar tu presencia digital? Estamos emocionados de conocer tu proyecto y explorar cómo podemos dar vida a tu visión.",
     "contact.email": "Correo",
+    "contact.email.value": "ventas@dospuntocerocr.com",
     "contact.phone": "Teléfono",
+    "contact.phone.value": "+506 88350280",
     "contact.location": "Ubicación",
+    "contact.location.value": "Costa Rica",
     "contact.start": "Iniciar una Conversación",
     "contact.click": "Haz clic para abrir el formulario de contacto",
     "contact.us": "Contáctanos",

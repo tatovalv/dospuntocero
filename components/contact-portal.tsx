@@ -133,6 +133,28 @@ export default function ContactPortal({ onClose }: ContactPortalProps) {
                 {isSubmitting ? t("form.sending") : t("form.send")}
               </Button>
             </div>
+
+            <div className="mt-8 space-y-3 border-t border-gray-800 pt-6 text-sm text-gray-400">
+              <p>
+                <span className="font-medium text-gray-300">{t("contact.email")}: </span>
+                <a href={`mailto:${t("contact.email.value")}`} className="text-cyan-400 hover:underline">
+                  {t("contact.email.value")}
+                </a>
+              </p>
+              <p>
+                <span className="font-medium text-gray-300">{t("contact.phone")}: </span>
+                <a
+                  href={`tel:${t("contact.phone.value").replace(/\s/g, "")}`}
+                  className="text-cyan-400 hover:underline"
+                >
+                  {t("contact.phone.value")}
+                </a>
+              </p>
+              <p>
+                <span className="font-medium text-gray-300">{t("contact.location")}: </span>
+                {t("contact.location.value")}
+              </p>
+            </div>
           </form>
         )}
       </motion.div>

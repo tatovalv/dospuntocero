@@ -13,10 +13,10 @@ interface HeroSectionProps {
 export default function HeroSection({ onNavigate }: HeroSectionProps) {
   const { t } = useLanguage()
 
-  // Navigate to Projects section (index 3)
+  // Navigate to Services section (projects panel removed)
   const handleExploreClick = () => {
     if (onNavigate) {
-      onNavigate(3) // Projects section
+      onNavigate(2)
     }
   }
 

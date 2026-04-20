@@ -51,7 +51,14 @@ export default function ContactSection({ onContactClick }: ContactSectionProps) 
                 </div>
                 <div>
                   <h3 className="text-lg font-medium">{t("contact.email")}</h3>
-                  <p className="text-gray-300">hello@2point0.com</p>
+                  <p className="text-gray-300">
+                    <a
+                      href={`mailto:${t("contact.email.value")}`}
+                      className="transition-colors hover:text-cyan-400"
+                    >
+                      {t("contact.email.value")}
+                    </a>
+                  </p>
                 </div>
               </div>
 
@@ -68,7 +75,14 @@ export default function ContactSection({ onContactClick }: ContactSectionProps) 
                 </div>
                 <div>
                   <h3 className="text-lg font-medium">{t("contact.phone")}</h3>
-                  <p className="text-gray-300">+1 (555) 123-4567</p>
+                  <p className="text-gray-300">
+                    <a
+                      href={`tel:${t("contact.phone.value").replace(/\s/g, "")}`}
+                      className="transition-colors hover:text-cyan-400"
+                    >
+                      {t("contact.phone.value")}
+                    </a>
+                  </p>
                 </div>
               </div>
 
@@ -91,7 +105,7 @@ export default function ContactSection({ onContactClick }: ContactSectionProps) 
                 </div>
                 <div>
                   <h3 className="text-lg font-medium">{t("contact.location")}</h3>
-                  <p className="text-gray-300">123 Innovation Street, Tech City, TC 10101</p>
+                  <p className="text-gray-300">{t("contact.location.value")}</p>
                 </div>
               </div>
             </div>

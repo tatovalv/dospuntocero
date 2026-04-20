@@ -92,11 +92,6 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
-                  {t("nav.projects")}
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
                   {t("hero.cta.process")}
                 </a>
               </li>

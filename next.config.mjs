@@ -17,18 +17,6 @@ const nextConfig = {
     ],
   },
   trailingSlash: true,
-  async rewrites() {
-    return [
-      {
-        source: '/:path*',
-        destination: '/:path*',
-      },
-      {
-        source: '/',
-        destination: '/',
-      },
-    ]
-  },
 }
 
 export default nextConfig

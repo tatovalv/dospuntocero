@@ -4,15 +4,16 @@ import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import TopNavigation from "@/components/top-navigation"
-import ProjectShowcase from "@/components/project-showcase"
 import ContactPortal from "@/components/contact-portal"
 import { Button } from "@/components/ui/button"
 import HeroSection from "@/components/hero-section"
 import AboutSection from "@/components/about-section"
 import ServicesSection from "@/components/services-section"
-import ProjectsSection from "@/components/projects-section"
 import ContactSection from "@/components/contact-section"
 import { LanguageProvider, useLanguage } from "@/components/language-context"
+
+/** Section order for horizontal layout (must match panel count in JSX). */
+const HOME_SECTIONS = ["intro", "about", "services", "contact"] as const
 
 export default function Home() {
   return (
@@ -30,8 +31,6 @@ function HomeContent() {
   const [currentSection, setCurrentSection] = useState(0)
   const sectionsRef = useRef<HTMLDivElement>(null)
 
-  const sections = ["intro", "about", "services", "projects", "contact"]
-
   useEffect(() => {
     // Simulate loading sequence
     const timer = setTimeout(() => {
@@ -43,14 +42,14 @@ function HomeContent() {
 
   // Update active section based on current section index
   useEffect(() => {
-    setActiveSection(sections[currentSection])
-  }, [currentSection, sections])
+    setActiveSection(HOME_SECTIONS[currentSection] ?? "intro")
+  }, [currentSection])
 
   // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-        if (currentSection < sections.length - 1) {
+        if (currentSection < HOME_SECTIONS.length - 1) {
           setCurrentSection((prev) => prev + 1)
         }
       } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
@@ -62,14 +61,14 @@ function HomeContent() {
 
     window.addEventListener("keydown", handleKeyDown)
     return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [currentSection, sections.length])
+  }, [currentSection])
 
   // Handle wheel events for horizontal scrolling
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
         e.preventDefault()
-        if (e.deltaY > 0 && currentSection < sections.length - 1) {
+        if (e.deltaY > 0 && currentSection < HOME_SECTIONS.length - 1) {
           setCurrentSection((prev) => prev + 1)
         } else if (e.deltaY < 0 && currentSection > 0) {
           setCurrentSection((prev) => prev - 1)
@@ -87,11 +86,11 @@ function HomeContent() {
         sectionsElement.removeEventListener("wheel", handleWheel)
       }
     }
-  }, [currentSection, sections.length])
+  }, [currentSection])
 
   // Function to navigate to a specific section
   const navigateToSection = (sectionIndex: number) => {
-    if (sectionIndex >= 0 && sectionIndex < sections.length) {
+    if (sectionIndex >= 0 && sectionIndex < HOME_SECTIONS.length) {
       setCurrentSection(sectionIndex)
     }
   }
@@ -166,7 +165,7 @@ function HomeContent() {
       {/* Horizontal sections container */}
       <div ref={sectionsRef} className="h-screen w-screen overflow-hidden">
         <motion.div
-          className="flex h-full w-[500vw]"
+          className="flex h-full w-[400vw]"
           animate={{ x: `-${currentSection * 100}vw` }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >
@@ -180,18 +179,12 @@ function HomeContent() {
             <ServicesSection />
           </div>
           <div className="h-full w-screen flex-shrink-0">
-            <ProjectsSection />
-          </div>
-          <div className="h-full w-screen flex-shrink-0">
             <div className="flex h-full flex-col">
               <ContactSection onContactClick={() => setShowContact(true)} />
             </div>
           </div>
         </motion.div>
       </div>
-
-      {/* Project showcase overlay - appears when triggered */}
-      <ProjectShowcase />
 
       {/* Background elements */}
       <div className="pointer-events-none fixed inset-0 z-0 opacity-40">

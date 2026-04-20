@@ -23,8 +23,7 @@ export default function TopNavigation({ activeSection, onSectionChange }: TopNav
     { id: "intro", label: t("nav.home"), index: 0 },
     { id: "about", label: t("nav.about"), index: 1 },
     { id: "services", label: t("nav.services"), index: 2 },
-    { id: "projects", label: t("nav.projects"), index: 3 },
-    { id: "contact", label: t("nav.contact"), index: 4 },
+    { id: "contact", label: t("nav.contact"), index: 3 },
   ]
 
   useEffect(() => {
@@ -99,7 +98,7 @@ export default function TopNavigation({ activeSection, onSectionChange }: TopNav
             </DropdownMenu>
 
             <Button
-              onClick={() => handleNavClick(4)}
+              onClick={() => handleNavClick(3)}
               className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700"
             >
               {t("nav.contact")}
@@ -164,7 +163,7 @@ export default function TopNavigation({ activeSection, onSectionChange }: TopNav
           <div className="mt-auto p-6">
             <Button
               onClick={() => {
-                handleNavClick(4)
+                handleNavClick(3)
                 setIsMobileMenuOpen(false)
               }}
               className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-4 text-lg"
