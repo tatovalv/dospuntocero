@@ -9,11 +9,11 @@ frontend:
         - npm ci
     build:
       commands:
-        - export NODE_OPTIONS="--max-old-space-size=6144"
-        - echo ">>> Starting npm run build"
+        - "export NODE_OPTIONS=--max-old-space-size=6144"
+        - 'echo ">>> Starting npm run build"'
         - npm run build
-        - echo ">>> Build script finished; checking out/"
-        - test -d out || (echo "ERROR: out/ directory missing — next build did not export static files" && exit 1)
+        - 'echo ">>> Build finished; listing out/"'
+        - 'test -d out || (echo "ERROR out folder missing after next build" && exit 1)'
         - ls -la out | head -40
   artifacts:
     baseDirectory: out
