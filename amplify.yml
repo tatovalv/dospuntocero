@@ -12,13 +12,17 @@ frontend:
         - "export NODE_OPTIONS=--max-old-space-size=6144"
         - 'echo ">>> Starting npm run build"'
         - npm run build
-        - 'echo ">>> Build finished; listing out/"'
-        - 'test -d out || (echo "ERROR out folder missing after next build" && exit 1)'
-        - ls -la out | head -40
+        - 'echo ">>> Build finished; verifying Amplify outputs"'
+        - 'test -f .next/required-server-files.json || (echo "ERROR missing required-server-files.json under .next" && exit 1)'
+        - 'test -d out || (echo "ERROR static out folder missing" && exit 1)'
+        - ls -la .next | head -25
   artifacts:
-    baseDirectory: out
+    # Next.js 14+ with output export still emits .next/required-server-files.json; Amplify Hosting expects this path (not out/).
+    # See AWS Amplify docs — "Next.js 14 or later SSG application" build settings.
+    baseDirectory: .next
     files:
       - '**/*'
   cache:
     paths:
       - node_modules/**/*
+      - .next/cache/**/*
